@@ -66,4 +66,12 @@ func TestInvokeOnLink(t *testing.T) {
 		t.Error(err)
 	}
 	fmt.Println(d)
+	entries := []*DnsEntry{
+		NewDnsEntry(net.IPv4(10, 0, 0, 138)),
+		NewDnsEntry(net.IPv4(8, 8, 8, 8)),
+		NewDnsEntry(net.IPv4(8, 8, 4, 4)),
+	}
+	if err = l.SetDNS(entries); err != nil {
+		t.Error(err)
+	}
 }

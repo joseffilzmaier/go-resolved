@@ -55,3 +55,7 @@ func (l *Link) PropDomains() ([]Domain, error) {
 	fmt.Println(reflect.TypeOf(v.Value()))
 	return retval, nil
 }
+
+func (l *Link) SetDNS(entries []*DnsEntry) error {
+	return l.connObj.Call(linkPath+".SetDNS", 0, entries).Err
+}
